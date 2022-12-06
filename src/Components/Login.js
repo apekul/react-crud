@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
 export const Login = ({ swap, setUser, userList, setUserList }) => {
-  const [error, setError] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState();
   const [newUser, setNewUser] = useState({
-    name: "unknow",
-    surname: "unknow",
-    email: "unknow",
-    password: "unknow",
+    name: "",
+    surname: "",
+    email: "",
+    password: "",
   });
 
   // Updates user values in Register and update newUser state
@@ -23,7 +22,7 @@ export const Login = ({ swap, setUser, userList, setUserList }) => {
     if (findUser.length !== 0 && findUser[0].password === newUser.password) {
       setUser(findUser[0]);
     } else {
-      console.log("incorrect login or password");
+      console.log("Invalid Email or Password");
     }
   };
 
@@ -31,25 +30,21 @@ export const Login = ({ swap, setUser, userList, setUserList }) => {
   const Register = (e) => {
     e.preventDefault();
     let findUser = userList.filter((v) => v.email === newUser.email);
-    if (findUser.length !== 0) {
-      console.log("email is taken");
+    if (newUser.name.length === 0) {
+      console.log("Name is required");
+    } else if (findUser.length !== 0 || newUser.name === 0) {
+      console.log("email is empty or taken");
     } else if (newUser.password !== confirmPassword) {
       console.log("password dont match");
     } else {
       setUser(newUser);
       setUserList((prev) => [...prev, newUser]);
     }
-    // if (findUser.length === 0) {
-    //   if (newUser.password === confirmPassword) {
-    //     setUser(newUser);
-    //     setUserList((prev) => [...prev, newUser]);
-    //   } else console.log("password dont match");
-    // } else console.log("email is taken");
   };
   return (
     <form className="group-auth">
       {!swap ? (
-        <div>
+        <label>
           <input
             type="text"
             name="name"
@@ -63,7 +58,7 @@ export const Login = ({ swap, setUser, userList, setUserList }) => {
             placeholder="Surname..."
             onChange={(e) => updateValue(e)}
           />
-        </div>
+        </label>
       ) : (
         ""
       )}
@@ -81,6 +76,7 @@ export const Login = ({ swap, setUser, userList, setUserList }) => {
         placeholder="password..."
         onChange={(e) => updateValue(e)}
       />
+
       {!swap ? (
         <input
           type="password"

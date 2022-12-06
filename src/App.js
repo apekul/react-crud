@@ -26,6 +26,7 @@ function App() {
       // Compare local storage userList to current state user List and if not update state
       setUserList(JSON.parse(dataList));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
