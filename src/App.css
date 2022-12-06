@@ -1,38 +1,74 @@
-.App {
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #130f40;
+}
+
+.container{
+  background: #ffff;
+  padding: 20px;
+  border-radius: 15px;
   text-align: center;
+  min-width: 20rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Auth Style */
+.group-auth{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.group-auth a{
+  color:#4834d4;
+  text-decoration: none
+}
+.group-auth a:hover{
+  text-decoration: underline;
+}
+.group-auth input{
+  padding: 12px;
+  margin: 5px;
+  border: 1px solid #ccc;
+}
+.btn{
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin: 5px;
+  transition-duration: 0.4s;
+  font-size: 1.5em;
+  font-weight: bold;
+  background: #4834d4;
+  color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.auth-swap-btn{
+  background: #6ab04c;
+  font-size: 1rem;
+  padding: 10px;
+}
+.group-auth span{
+  display:block;
+  width: 100%;
+  margin-top: 20px;
+  border-top: 1px solid #ccc
+}
+.btn:hover{
+  filter: brightness(90%)
+}
+
+/* User Display */
+.user-group{
+  color: #ffff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
