@@ -1,5 +1,4 @@
 ## Login/Register functionality React
-With use of LocalStorage, created users will be stored i LocalStorage and persist after refresh until local storage will be cleared
-
+User registration/Login simulation, all data is stored in LocalStorage and persist till cleared
 ## demo https://demo-reactcrud.netlify.app/
-### npm start
+
